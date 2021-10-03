@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface AssignCourseServcie {
     List<CourseAssign> getAllCourses();
+
+    CourseAssign getAssingCourseById(Long id);
 }

@@ -35,4 +35,17 @@ public class AssignCourseServiceImpl implements AssignCourseServcie {
 
         return courseAssignList;
     }
+
+    @Override
+    public CourseAssign getAssingCourseById(Long id) {
+        System.out.println("BookInformationServiceImpl.getBookInformationById");
+        System.out.println("id = " + id);
+        CourseAssign  courseAssign = new CourseAssign();
+        courseAssign.setId(id);
+        courseAssign.setTitle("Name " + id);
+        courseAssign.setDescription("Description " + id);
+        return courseAssign;
+    }
+
+
 }
