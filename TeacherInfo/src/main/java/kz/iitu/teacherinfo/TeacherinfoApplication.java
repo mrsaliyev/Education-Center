@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableCircuitBreaker
 public class TeacherinfoApplication {
 
     public static void main(String[] args) {

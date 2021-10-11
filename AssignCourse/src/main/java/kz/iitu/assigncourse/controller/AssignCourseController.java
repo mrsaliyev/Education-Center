@@ -16,7 +16,7 @@ public class AssignCourseController {
     private AssignCourseServcie assignCourseServcie;
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getAssingCourseById(@PathVariable Long id) {
-        return ResponseEntity.ok(assignCourseServcie.getAssingCourseById(id));
+    public ResponseEntity<?> getAllCourses(@PathVariable Long id) {
+        return ResponseEntity.ok(assignCourseServcie.getAllCourses());
     }
 }
