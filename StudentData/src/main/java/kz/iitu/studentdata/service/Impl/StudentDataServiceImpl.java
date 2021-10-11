@@ -1,17 +1,12 @@
 package kz.iitu.studentdata.service.Impl;
 
 import kz.iitu.studentdata.model.Student;
-import kz.iitu.studentdata.service.StudentService;
+import kz.iitu.studentdata.service.StudentDataService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentServiceImpl implements StudentService {
-    @Override
-    public void login() {
-
-    }
-
+public class StudentDataServiceImpl implements StudentDataService {
     @Override
     public List<Student> getAllStudents() {
         List<Student> studentList = new ArrayList<>();
@@ -35,27 +30,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void deleteStudent(Long id) {
-
-    }
-
-    @Override
-    public void deleteCourse(Long id) {
-
-    }
-
-    @Override
     public Student findStudentById(Long id) {
-        return null;
-    }
-
-    @Override
-    public void newStudent(Student student) {
-
-    }
-
-    @Override
-    public Student getByUsername(String username) {
-        return null;
+        Student student = new Student();
+        student.getId();
+        return student;
     }
 }
