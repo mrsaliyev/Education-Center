@@ -2,5 +2,5 @@ package kz.iitu.studentrating.service;
 
 public interface StudentRatingService {
 
-    Double getStudentRatingById(Long id);
+    Double getStudentRating(Long id);
 }
