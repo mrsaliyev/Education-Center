@@ -9,5 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Course {
     private Long id;
-    private String fullName;
+    private String name;
+    private String description;
+    private double price;
 }
