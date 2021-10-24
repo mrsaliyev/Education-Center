@@ -24,9 +24,9 @@ public class AssignCourseServiceImpl implements AssignCourseServcie {
 
         List<Long> courseIds = new ArrayList<>(Arrays.asList(1L, 2L, 4L));
         for (Long id : courseIds) {
-            CourseAssign courseAssign = restTemplate.getForObject("http://localhost:8082/courses/" + id, CourseAssign.class);
-            StudentRating student = restTemplate.getForObject("http://localhost:8084/student/" + id, StudentRating.class);
-            String teacher = restTemplate.getForObject("http://localhost:8085/teachers/" + id, String.class);
+            CourseAssign courseAssign = restTemplate.getForObject("http://course-information-service/courses/" + id, CourseAssign.class);
+            StudentRating student = restTemplate.getForObject("http://student-rating-service/student/" + id, StudentRating.class);
+            String teacher = restTemplate.getForObject("http://teacher-info-service/teachers/" + id, String.class);
 
             courseAssign.setStudentRating((List<StudentRating>) student);
             courseAssign.setTeachers(teacher);
