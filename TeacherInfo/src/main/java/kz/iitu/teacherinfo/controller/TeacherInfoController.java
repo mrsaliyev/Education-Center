@@ -1,5 +1,6 @@
 package kz.iitu.teacherinfo.controller;
 
+import io.swagger.annotations.Api;
 import kz.iitu.teacherinfo.model.Teacher;
 import kz.iitu.teacherinfo.service.TeacherInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/teachers")
+@Api(value = "Teacher Controller class", description = "This class allows to interact with Teacher object")
 public class TeacherInfoController {
 
     @Autowired
