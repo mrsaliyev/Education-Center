@@ -1,5 +1,7 @@
 package kz.iitu.assigncourse.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import kz.iitu.assigncourse.model.CourseAssign;
 import kz.iitu.assigncourse.model.StudentRating;
 import kz.iitu.assigncourse.service.AssignCourseServcie;
@@ -19,6 +21,7 @@ public class AssignCourseServiceImpl implements AssignCourseServcie {
     private RestTemplate restTemplate;
 
     @Override
+    @HystrixCommand(fallbackMethod = "getAllCoursesFallback")
     public List<CourseAssign> getAllCourses() {
         List<CourseAssign> courseAssignList = new ArrayList<>();
 
@@ -37,8 +40,15 @@ public class AssignCourseServiceImpl implements AssignCourseServcie {
     }
 
     @Override
+    @HystrixCommand(
+            fallbackMethod = "getAssingCourseByIdFallback",
+            threadPoolKey = "getAssingCourseById",
+            threadPoolProperties = {
+                    @HystrixProperty(name="coreSize", value="100"),
+                    @HystrixProperty(name="maxQueueSize", value="50"),
+            })
     public CourseAssign getAssingCourseById(Long id) {
-        System.out.println("BookInformationServiceImpl.getBookInformationById");
+        System.out.println("AssignCourseServiceImpl.getAssingCourseById");
         System.out.println("id = " + id);
         CourseAssign  courseAssign = new CourseAssign();
         courseAssign.setId(id);
