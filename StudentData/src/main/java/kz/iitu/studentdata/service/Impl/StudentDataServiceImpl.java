@@ -30,9 +30,22 @@ public class StudentDataServiceImpl implements StudentDataService {
     }
 
     @Override
+    @HystrixCommand(
+            fallbackMethod = "findStudentByIdFallback",
+            threadPoolKey = "findStudentById",
+            threadPoolProperties = {
+                    @HystrixProperty(name="coreSize", value="100"),
+                    @HystrixProperty(name="maxQueueSize", value="50"),
+            })
     public Student findStudentById(Long id) {
+        System.out.println("StudentDataServiceImpl.findStudentById");
+        System.out.println("id = " + id);
         Student student = new Student();
-        student.getId();
+        student.setId(id);
+        student.setUsername("Aslan");
+        student.setFullName("Aslan11");
+        student.setPhone("87776963655");
+        student.setPassword("132");
         return student;
     }
 }
