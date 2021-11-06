@@ -14,8 +14,9 @@ public class TeacherInformationServiceImpl implements TeacherInfoService {
             fallbackMethod = "getTeacherInformationByIdFallback",
             threadPoolKey = "getTeacherInformationById",
             threadPoolProperties = {
-                    @HystrixProperty(name="coreSize", value="100"),
-                    @HystrixProperty(name="maxQueueSize", value="50"),
+
+                    @HystrixProperty(name = "coreSize", value = "100"),
+                    @HystrixProperty(name = "maxQueueSize", value = "50"),
             })
     public Teacher getTeacherInformationById(Long id) {
         System.out.println("BookInformationServiceImpl.getBookInformationById");

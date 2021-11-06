@@ -44,8 +44,8 @@ public class AssignCourseServiceImpl implements AssignCourseServcie {
             fallbackMethod = "getAssingCourseByIdFallback",
             threadPoolKey = "getAssingCourseById",
             threadPoolProperties = {
-                    @HystrixProperty(name="coreSize", value="100"),
-                    @HystrixProperty(name="maxQueueSize", value="50"),
+                    @HystrixProperty(name = "coreSize", value = "100"),
+                    @HystrixProperty(name = "maxQueueSize", value = "50"),
             })
     public CourseAssign getAssingCourseById(Long id) {
         System.out.println("AssignCourseServiceImpl.getAssingCourseById");
