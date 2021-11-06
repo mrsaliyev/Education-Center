@@ -1,5 +1,7 @@
 package kz.iitu.studentrating.service.Impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import kz.iitu.studentrating.model.Rating;
 import kz.iitu.studentrating.model.Student;
 import kz.iitu.studentrating.service.StudentRatingService;
@@ -23,6 +25,7 @@ public class StudentRatingServiceImpl implements StudentRatingService {
     }
 
     @Override
+    @HystrixCommand(fallbackMethod = "getAllStudentsFallback")
     public List<Student> getAllStudents() {
         List<Student> students = new ArrayList<>();
 
@@ -35,5 +38,22 @@ public class StudentRatingServiceImpl implements StudentRatingService {
         }
 
         return students;
+    }
+
+    @Override
+    @HystrixCommand(
+            fallbackMethod = "getStudentRatingFallback",
+            threadPoolKey = "getStudentRating",
+            threadPoolProperties = {
+                    @HystrixProperty(name="coreSize", value="100"),
+                    @HystrixProperty(name="maxQueueSize", value="50"),
+            })
+    public Rating getStudentRating(Long id) {
+        System.out.println("StudentRatingServiceImpl.getStudentRating");
+        System.out.println("id = " + id);
+        Rating  rating = new Rating();
+        rating.setStudentId(id);
+        rating.setRating(12);
+        return rating;
     }
 }
