@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface StudentRatingService {
 
-    double getStudentRating(Long id);
+    void getStudentRating(Long id);
     List<Student> getAllStudents();
 }
