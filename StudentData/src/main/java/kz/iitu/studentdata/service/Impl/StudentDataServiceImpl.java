@@ -1,5 +1,7 @@
 package kz.iitu.studentdata.service.Impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import kz.iitu.studentdata.model.Student;
 import kz.iitu.studentdata.service.StudentDataService;
 

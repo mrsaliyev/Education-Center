@@ -11,18 +11,11 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class StudentRatingServiceImpl implements StudentRatingService {
 
     @Autowired
     private RestTemplate restTemplate;
-
-    @Override
-    public double getStudentRating(Long id) {
-        Random random = new Random();
-        return 4.0 * random.nextDouble();
-    }
 
     @Override
     @HystrixCommand(fallbackMethod = "getAllStudentsFallback")
@@ -48,12 +41,12 @@ public class StudentRatingServiceImpl implements StudentRatingService {
                     @HystrixProperty(name="coreSize", value="100"),
                     @HystrixProperty(name="maxQueueSize", value="50"),
             })
-    public Rating getStudentRating(Long id) {
+    public void getStudentRating(Long id) {
         System.out.println("StudentRatingServiceImpl.getStudentRating");
         System.out.println("id = " + id);
         Rating  rating = new Rating();
         rating.setStudentId(id);
         rating.setRating(12);
-        return rating;
+        return;
     }
 }
