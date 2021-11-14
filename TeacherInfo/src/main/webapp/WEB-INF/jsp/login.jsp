@@ -5,7 +5,7 @@
 </head>
 <body>
 <header id="header">
-    <%@include file="layout/navbar.jsp"%>
+    <%@include file="layout/navbar.jsp" %>
 </header>
 
 
@@ -41,8 +41,6 @@
                     </form>
                 </div>
             </div>
-
-
 
 
         </div>

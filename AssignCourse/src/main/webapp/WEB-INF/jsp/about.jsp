@@ -5,7 +5,7 @@
 </head>
 <body>
 <header id="header">
-    <%@include file="layout/navbar.jsp"%>
+    <%@include file="layout/navbar.jsp" %>
 </header>
 
 <div class="hero-area section">
@@ -74,7 +74,9 @@
             <div class="col-md-6">
                 <h3>Persius imperdiet incorrupte et qui, munere nusquam et nec.</h3>
                 <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-                <p>No vel facete sententiae, quodsi dolores no quo, pri ex tamquam interesset necessitatibus. Te denique cotidieque delicatissimi sed. Eu doming epicurei duo. Sit ea perfecto deseruisse theophrastus. At sed malis hendrerit, elitr deseruisse in sit, sit ei facilisi mediocrem.</p>
+                <p>No vel facete sententiae, quodsi dolores no quo, pri ex tamquam interesset necessitatibus. Te denique
+                    cotidieque delicatissimi sed. Eu doming epicurei duo. Sit ea perfecto deseruisse theophrastus. At
+                    sed malis hendrerit, elitr deseruisse in sit, sit ei facilisi mediocrem.</p>
             </div>
             <div class="col-md-5 col-md-offset-1">
                 <a class="about-video" href="#">

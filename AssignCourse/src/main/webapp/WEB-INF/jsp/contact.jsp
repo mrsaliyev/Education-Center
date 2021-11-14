@@ -5,7 +5,7 @@
 </head>
 <body>
 <header id="header">
-<%@include file="layout/navbar.jsp"%>
+    <%@include file="layout/navbar.jsp" %>
 </header>
 
 <div class="hero-area section">
@@ -49,7 +49,8 @@
             <div class="col-md-5 col-md-offset-1">
                 <h4>Contact Information</h4>
                 <ul class="contact-details">
-                    <li><i class="fa fa-envelope"></i><a href="https://gmail.com" class="__cf_email__">deans@iitu.kz</a></li>
+                    <li><i class="fa fa-envelope"></i><a href="https://gmail.com" class="__cf_email__">deans@iitu.kz</a>
+                    </li>
                     <li><i class="fa fa-phone"></i>8-701-123-45-67</li>
                     <li><i class="fa fa-map-marker"></i>31A Jandosova Street</li>
                 </ul>

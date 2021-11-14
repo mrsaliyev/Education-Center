@@ -50,7 +50,7 @@ public class AssignCourseServiceImpl implements AssignCourseServcie {
     public CourseAssign getAssingCourseById(Long id) {
         System.out.println("AssignCourseServiceImpl.getAssingCourseById");
         System.out.println("id = " + id);
-        CourseAssign  courseAssign = new CourseAssign();
+        CourseAssign courseAssign = new CourseAssign();
         courseAssign.setId(id);
         courseAssign.setTitle("Name " + id);
         courseAssign.setDescription("Description " + id);

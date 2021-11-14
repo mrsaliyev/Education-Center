@@ -21,7 +21,7 @@ public class TeacherInformationServiceImpl implements TeacherInfoService {
     public Teacher getTeacherInformationById(Long id) {
         System.out.println("BookInformationServiceImpl.getBookInformationById");
         System.out.println("id = " + id);
-        Teacher  teacher = new Teacher();
+        Teacher teacher = new Teacher();
         teacher.setId(id);
         teacher.setFullName("Name " + id);
         teacher.setSubject("Subject " + id);

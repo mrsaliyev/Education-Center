@@ -5,7 +5,7 @@
 </head>
 <body>
 <header id="header">
-    <%@include file="layout/navbar.jsp"%>
+    <%@include file="layout/navbar.jsp" %>
 </header>
 
 <div class="hero-area section">
@@ -40,13 +40,15 @@
                         <input class="input" type="password" name="password2" placeholder="Password confirmation">
                         <p>You are...</p>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="exampleRadios1" value="student" checked>
+                            <input class="form-check-input" type="radio" name="role" id="exampleRadios1" value="student"
+                                   checked>
                             <label class="form-check-label" for="exampleRadios1">
                                 Student
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="role" id="exampleRadios2" value="teacher">
+                            <input class="form-check-input" type="radio" name="role" id="exampleRadios2"
+                                   value="teacher">
                             <label class="form-check-label" for="exampleRadios2">
                                 Teacher
                             </label>

@@ -24,13 +24,13 @@ public class StudentController {
 
     @ApiOperation(value = "List of students")
     @GetMapping("")
-    public List<Student> userList(){
+    public List<Student> userList() {
         return studentDataService.getAllStudents();
     }
 
     @ApiOperation(value = "Student by id")
     @GetMapping("/{id}")
-    public ResponseEntity<?> findStudentById(@PathVariable Long id){
+    public ResponseEntity<?> findStudentById(@PathVariable Long id) {
         System.out.println("StudentController.getAllStudents");
         List<Student> students = new ArrayList<>();
         students.add(Student.builder().id(1L).fullName("AslanAslan").phone("87766669666").username("aslan01").password

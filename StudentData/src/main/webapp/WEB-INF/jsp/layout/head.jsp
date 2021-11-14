@@ -6,4 +6,4 @@
 <%--<link type="text/css" rel="stylesheet" href="assets/css/style.css" />--%>
 <%--<link rel="stylesheet" type="text/css"--%>
 <%--      href="${pageContext.request.contextPath}/layout/style.css"/>--%>
-<%@include file="style.jsp"%>
+<%@include file="style.jsp" %>

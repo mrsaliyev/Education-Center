@@ -15,6 +15,7 @@ public class CoursecatalogApplication {
     public static void main(String[] args) {
         SpringApplication.run(CoursecatalogApplication.class, args);
     }
+
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate() {

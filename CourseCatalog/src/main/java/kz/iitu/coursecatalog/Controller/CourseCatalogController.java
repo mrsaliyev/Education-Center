@@ -25,7 +25,7 @@ public class CourseCatalogController {
         List<Course> course = courseInformationService.getCourse(id);
 
         List<CourseCatalog> userCourseCatalog = new ArrayList<>();
-        for(Course courses: course){
+        for (Course courses : course) {
             CourseCatalog courseCatalog = new CourseCatalog();
             courseCatalog.setCourseId(courses.getId());
             courseCatalog.setPrice(courses.getPrice());

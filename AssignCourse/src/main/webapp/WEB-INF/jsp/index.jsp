@@ -5,9 +5,9 @@
     <jsp:include page="layout/head.jsp"/>
 </head>
 <body>
-<%@include file="layout/navbar.jsp"%>
+<%@include file="layout/navbar.jsp" %>
 <header id="header" class="transparent-nav">
-<%--<%@include file="layout/navbar.jsp"%>--%>
+    <%--<%@include file="layout/navbar.jsp"%>--%>
 </header>
 <div id="home" class="hero-area">
 
@@ -18,7 +18,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <h1 class="white-text">Edusite Free Online Training Courses</h1>
-                    <p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant, eu pro alii error homero.</p>
+                    <p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant, eu pro
+                        alii error homero.</p>
                     <a class="main-button icon-button" href="#">Get Started!</a>
                 </div>
             </div>
@@ -75,7 +76,6 @@
     </div>
 
 </div>
-
 
 
 <jsp:include page="layout/footer.jsp"/>

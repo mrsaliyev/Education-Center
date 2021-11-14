@@ -5,7 +5,7 @@
 </head>
 <body>
 <header id="header">
-    <%@include file="layout/navbar.jsp"%>
+    <%@include file="layout/navbar.jsp" %>
 </header>
 
 <div class="hero-area section">
@@ -40,15 +40,15 @@
             </tr>
             </thead>
             <tbody>
-            <%for (int i =0;i<users.size(); i++){%>
-<%--            <tr>--%>
-<%--                <th scope="row"><%=users.get(i).getId()%></th>--%>
-<%--                <td><%=users.get(i).getName()%></td>--%>
-<%--                <td><%=users.get(i).getEmail()%></td>--%>
-<%--                <td><%=users.get(i).getRole()%></td>--%>
-<%--                <td><%=users.get(i).getPassword()%></td>--%>
-<%--                <td><a href="DeleteUserServlet?id=<%=users.get(i).getId()%>">Delete</a> | <a href="update?uid=<%=users.get(i).getId()%>">Edit</a></td>--%>
-<%--            </tr>--%>
+            <%for (int i = 0; i < users.size(); i++) {%>
+            <%--            <tr>--%>
+            <%--                <th scope="row"><%=users.get(i).getId()%></th>--%>
+            <%--                <td><%=users.get(i).getName()%></td>--%>
+            <%--                <td><%=users.get(i).getEmail()%></td>--%>
+            <%--                <td><%=users.get(i).getRole()%></td>--%>
+            <%--                <td><%=users.get(i).getPassword()%></td>--%>
+            <%--                <td><a href="DeleteUserServlet?id=<%=users.get(i).getId()%>">Delete</a> | <a href="update?uid=<%=users.get(i).getId()%>">Edit</a></td>--%>
+            <%--            </tr>--%>
             <%}%>
             </tbody>
         </table>

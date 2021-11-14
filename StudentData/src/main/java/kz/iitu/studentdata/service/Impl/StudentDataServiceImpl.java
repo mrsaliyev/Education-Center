@@ -36,8 +36,8 @@ public class StudentDataServiceImpl implements StudentDataService {
             fallbackMethod = "findStudentByIdFallback",
             threadPoolKey = "findStudentById",
             threadPoolProperties = {
-                    @HystrixProperty(name="coreSize", value="100"),
-                    @HystrixProperty(name="maxQueueSize", value="50"),
+                    @HystrixProperty(name = "coreSize", value = "100"),
+                    @HystrixProperty(name = "maxQueueSize", value = "50"),
             })
     public Student findStudentById(Long id) {
         System.out.println("StudentDataServiceImpl.findStudentById");
