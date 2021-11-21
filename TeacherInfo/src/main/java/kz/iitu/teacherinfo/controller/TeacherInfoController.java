@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/teachers")
-@Api(value = "Teacher Controller class", description = "This class allows to interact with Teacher object")
+@Api(value = "Teacher Controller class", description = "This class allows to interact with Teacherx object")
 public class TeacherInfoController {
 
     @Autowired
