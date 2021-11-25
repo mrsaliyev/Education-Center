@@ -12,7 +12,7 @@ public class CourseInfoServiceImpl implements CourseInfoService {
         System.out.println("id = " + id);
         Course course = new Course();
         course.setId(id);
-        course.setFullName("Name " + id);
+        course.setName("Name " + id);
         return course;
     }
 }

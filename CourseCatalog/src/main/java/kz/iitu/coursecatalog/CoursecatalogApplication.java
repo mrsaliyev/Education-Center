@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 public class CoursecatalogApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(CoursecatalogApplication.class, args);
     }
 
