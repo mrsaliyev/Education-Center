@@ -4,8 +4,8 @@ import kz.iitu.assigncourse.model.CourseAssign;
 
 import java.util.List;
 
-public interface AssignCourseServcie {
+public interface AssignCourseService {
     List<CourseAssign> getAllCourses();
-
-    CourseAssign getAssingCourseById(Long id);
+    CourseAssign saveAssingCourse(CourseAssign courseAssign);
+    CourseAssign getCourseById(Long id);
 }
