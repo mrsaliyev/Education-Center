@@ -1,6 +1,5 @@
-package kz.iitu.assigncourse.model;
+package kz.iitu.teacherinfo.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,15 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Data
 @Entity
+@Data
 @NoArgsConstructor
-@AllArgsConstructor
-public class CourseAssign {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long courseId;
-    private Long studentId;
-    private Long userId;
+    private String name;
 }

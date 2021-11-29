@@ -9,6 +9,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class StudentRating {
     private Long id;
-    private String fullName;
-    private Double rating;
+    private String courseName;
 }

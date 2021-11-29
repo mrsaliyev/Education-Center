@@ -1,7 +1,7 @@
 package kz.iitu.assigncourse.controller;
 
 import io.swagger.annotations.Api;
-import kz.iitu.assigncourse.service.AssignCourseServcie;
+import kz.iitu.assigncourse.service.AssignCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class AssignCourseController {
 
     @Autowired
-    private AssignCourseServcie assignCourseServcie;
+    private AssignCourseService assignCourseServcie;
 
-    @GetMapping("/{id}")
+    @GetMapping("/")
     public ResponseEntity<?> getAllCourses(@PathVariable Long id) {
         return ResponseEntity.ok(assignCourseServcie.getAllCourses());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getCourseById(@PathVariable Long id) {
+        return ResponseEntity.ok(assignCourseServcie.getCourseById(id));
     }
 }
