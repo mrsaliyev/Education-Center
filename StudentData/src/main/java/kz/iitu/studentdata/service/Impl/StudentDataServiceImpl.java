@@ -17,16 +17,14 @@ public class StudentDataServiceImpl implements StudentDataService {
         student1.setId(1L);
         student1.setFullName("Aslan Shaizhan");
         student1.setPhone("87766469666");
-        student1.setUsername("aslan01");
-        student1.setPassword("123456");
+        student1.setEmail("aslan01");
         studentList.add(student1);
 
         Student student2 = new Student();
         student2.setId(1L);
         student2.setFullName("Madiyar Rsalyiev");
         student2.setPhone("87766469699");
-        student2.setUsername("madi02");
-        student2.setPassword("12345");
+        student2.setEmail("madi02");
         studentList.add(student2);
         return studentList;
     }
@@ -44,10 +42,9 @@ public class StudentDataServiceImpl implements StudentDataService {
         System.out.println("id = " + id);
         Student student = new Student();
         student.setId(id);
-        student.setUsername("Aslan");
         student.setFullName("Aslan11");
         student.setPhone("87776963655");
-        student.setPassword("132");
+        student.setEmail("Aslan__");
         return student;
     }
 }
