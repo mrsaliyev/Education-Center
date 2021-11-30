@@ -1,16 +1,17 @@
-package kz.iitu.commonservice.security;
-
-import org.springframework.beans.factory.annotation.Value;
+package kz.iitu.teacherinfo.config;
 
 import lombok.Getter;
 import lombok.ToString;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 @Getter
 @ToString
+//@Component
 public class JwtConfig {
 
     @Value("${security.jwt.uri:/auth/**}")
-    private String Uri;
+    private String uri;
 
     @Value("${security.jwt.header:Authorization}")
     private String header;
