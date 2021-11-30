@@ -1,13 +1,14 @@
 package kz.iitu.assigncourse.controller;
 
 import io.swagger.annotations.Api;
+import kz.iitu.assigncourse.model.CourseAssign;
 import kz.iitu.assigncourse.service.AssignCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/assingCourse")
@@ -25,5 +26,10 @@ public class AssignCourseController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getCourseById(@PathVariable Long id) {
         return ResponseEntity.ok(assignCourseServcie.getCourseById(id));
+    }
+
+    @PostMapping("/addassign")
+    public ResponseEntity<CourseAssign> saveAss(@RequestBody CourseAssign assign) {
+        return ResponseEntity.ok(assignCourseServcie.saveAssingCourse(assign));
     }
 }

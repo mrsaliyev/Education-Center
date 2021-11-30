@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="zuul-server" />
+        <module name="studentrating" />
+        <module name="discovery-server" />
+        <module name="teacherinfo" />
+        <module name="courseinfo" />
+        <module name="demo" />
+        <module name="studentdata" />
+        <module name="coursecatalog" />
+        <module name="assigncourse" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="assigncourse" target="1.8" />
+      <module name="common-service" target="1.8" />
+      <module name="coursecatalog" target="1.8" />
+      <module name="courseinfo" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="discovery-server" target="1.8" />
+      <module name="studentdata" target="1.8" />
+      <module name="studentrating" target="1.8" />
+      <module name="Teacher" target="1.8" />
+      <module name="teacher" target="1.8" />
+      <module name="teacherinfo" target="1.8" />
+      <module name="teacherv2" target="1.8" />
+      <module name="zuul-server" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="assigncourse" options="-parameters" />
+      <module name="common-service" options="-parameters" />
+      <module name="coursecatalog" options="-parameters" />
+      <module name="courseinfo" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="discovery-server" options="-parameters" />
+      <module name="studentdata" options="-parameters" />
+      <module name="studentrating" options="-parameters" />
+      <module name="teacherinfo" options="-parameters" />
+      <module name="teacherv2" options="-parameters" />
+      <module name="zuul-server" options="-parameters" />
+    </option>
+  </component>
+</project>

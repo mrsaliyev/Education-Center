@@ -1,2 +1,4 @@
-package kz.iitu.studentdata.Repository;public interface StudentRepository {
+package kz.iitu.studentdata.Repository;
+
+public interface StudentRepository {
 }
