@@ -8,11 +8,18 @@ import java.util.List;
 
 public interface UserService {
     User saveUser(User user);
+
     Role saveRole(Role role);
+
     void addRoleToUser(String username, String roleName);
+
     User getUserById(Long userId);
+
     User getUserByUsername(String username);
+
     java.util.List<User> getUsers();
+
     List<Role> getRoles();
+
     UserDetails loadUserByUsername(String username);
 }

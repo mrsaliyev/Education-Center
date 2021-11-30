@@ -17,25 +17,25 @@ public class CourseService {
         this.courseRepo = courseRepo;
     }
 
-    public Course addCourse(Course course){
+    public Course addCourse(Course course) {
         return courseRepo.save(course);
     }
 
-    public List<Course> listAllCourses(){
+    public List<Course> listAllCourses() {
         return courseRepo.findAll();
     }
 
-    public Course updateCourse(Course course){
+    public Course updateCourse(Course course) {
         return courseRepo.save(course);
     }
 
-    public void removeCourse(Long id){
+    public void removeCourse(Long id) {
         courseRepo.deleteCourseById(id);
     }
 
-    public Course findCourseById(Long id){
+    public Course findCourseById(Long id) {
         return courseRepo.findCourseById(id)
-                .orElseThrow(()-> new CourseNotFoundExceptino("Course with id" + id + " wasn't found"));
+                .orElseThrow(() -> new CourseNotFoundExceptino("Course with id" + id + " wasn't found"));
     }
 }
 
