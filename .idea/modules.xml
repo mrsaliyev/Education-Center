@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Education-Center.iml" filepath="$PROJECT_DIR$/.idea/Education-Center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AssignCourse/assigncourse.iml" filepath="$PROJECT_DIR$/AssignCourse/assigncourse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CourseCatalog/coursecatalog.iml" filepath="$PROJECT_DIR$/CourseCatalog/coursecatalog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CourseInfo/courseinfo.iml" filepath="$PROJECT_DIR$/CourseInfo/courseinfo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Auth-Service/demo.iml" filepath="$PROJECT_DIR$/Auth-Service/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Discovery-server/discovery-server.iml" filepath="$PROJECT_DIR$/Discovery-server/discovery-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudentData/studentdata.iml" filepath="$PROJECT_DIR$/StudentData/studentdata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudentRating/studentrating.iml" filepath="$PROJECT_DIR$/StudentRating/studentrating.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TeacherInfo/teacherinfo.iml" filepath="$PROJECT_DIR$/TeacherInfo/teacherinfo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZuulServer/zuul-server.iml" filepath="$PROJECT_DIR$/ZuulServer/zuul-server.iml" />
+    </modules>
+  </component>
+</project>

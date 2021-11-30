@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/CourseInfo/pom.xml" />
+        <option value="$PROJECT_DIR$/ZuulServer/pom.xml" />
+        <option value="$PROJECT_DIR$/StudentData/pom.xml" />
+        <option value="$PROJECT_DIR$/TeacherInfo/pom.xml" />
+        <option value="$PROJECT_DIR$/AssignCourse/pom.xml" />
+        <option value="$PROJECT_DIR$/Auth-Service/pom.xml" />
+        <option value="$PROJECT_DIR$/CourseCatalog/pom.xml" />
+        <option value="$PROJECT_DIR$/StudentRating/pom.xml" />
+        <option value="$PROJECT_DIR$/Discovery-server/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8.0_101" project-jdk-type="JavaSDK" />
+</project>

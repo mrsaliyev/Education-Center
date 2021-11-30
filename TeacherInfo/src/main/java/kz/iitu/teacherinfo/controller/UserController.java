@@ -6,6 +6,7 @@ import kz.iitu.teacherinfo.model.User;
 import kz.iitu.teacherinfo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -22,7 +23,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("")
+    @PostMapping("/addnew")
     public ResponseEntity<User> saveUser(@RequestBody User user) {
         URI uri = URI.create(
                 ServletUriComponentsBuilder.fromCurrentContextPath()
