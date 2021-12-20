@@ -1,42 +1,55 @@
 package kz.iitu.studentdata.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import kz.iitu.studentdata.model.Student;
 import kz.iitu.studentdata.service.StudentDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.ArrayList;
+import java.net.URI;
 import java.util.List;
 
-@RestController
-@RequestMapping("/student/info")
-@Api(value = "Student Controller")
+@Controller
+@RequestMapping("/student")
 public class StudentController {
 
     @Autowired
     private StudentDataService studentDataService;
 
-    @ApiOperation(value = "List of students")
-    @GetMapping("")
-    public List<Student> userList() {
-        return studentDataService.getAllStudents();
+    @PostMapping("/addnew")
+    public ResponseEntity<Student> saveStudent(@RequestBody Student student) {
+        URI uri = URI.create(
+                ServletUriComponentsBuilder.fromCurrentContextPath()
+                        .path("/student")
+                        .toUriString()
+        );
+        return ResponseEntity.created(uri).body(this.studentDataService.saveStudent(student));
     }
 
-    @ApiOperation(value = "Student by id")
-    @GetMapping("/{id}")
-    public ResponseEntity<?> findStudentById(@PathVariable Long id) {
-        System.out.println("StudentController.getAllStudents");
-        List<Student> students = new ArrayList<>();
-        students.add(Student.builder().id(1L).fullName("AslanAslan").phone("87766669666").username("aslan01").password
-                ("12345").build());
-        students.add(Student.builder().id(1L).fullName("Aslan").phone("87766668866").username("aslan02").password
-                ("123456").build());
-        return ResponseEntity.ok(students);
+    @GetMapping("")
+    public ResponseEntity<List<Student>> getStudents() {
+        return ResponseEntity.ok().body(this.studentDataService.getAllStudents());
+    }
+
+    @GetMapping("/{studentId}")
+    public ResponseEntity<Student> getStudentById(@PathVariable Long studentId) {
+        return ResponseEntity.ok().body(this.studentDataService.getStudentById(studentId));
+    }
+
+    @GetMapping("/getByEmail/{email}")
+    public ResponseEntity<Student> getStudentByEmail(@PathVariable String email) {
+        return ResponseEntity.ok().body(this.studentDataService.getStudentByEmail(email));
+    }
+
+    @PostMapping("/edit")
+    public ResponseEntity<Student> editStudent(@PathVariable Student student) {
+        return ResponseEntity.ok().body(this.studentDataService.editStudent(student));
+    }
+
+    @PostMapping("/delete")
+    public void delete(@PathVariable Long Id) {
+        studentDataService.delete(Id);
     }
 }
