@@ -21,11 +21,12 @@ import javax.servlet.http.HttpServletResponse;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-@EnableSwagger2
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserDetailsService userDetailsService;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    private UserDetailsService userDetailsService;
+    @Autowired
+    private PasswordEncoder bCryptPasswordEncoder;
 
 
     @Override
@@ -43,28 +44,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/auth/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/user/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/user/**").permitAll()
+                .antMatchers( "/swagger-ui/**").permitAll()
+                .antMatchers( "/swagger-resources/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager()));
 //        http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
     }
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception
-//    {
-//        http
-//                .csrf().disable()
-//                .authorizeRequests().anyRequest().hasRole("REST_CLIENT")
-//                .and()
-//                .httpBasic();
-//    }
-//
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth)
-//            throws Exception
-//    {
-//        auth.inMemoryAuthentication()
-//                .withUser("rest-client")
-//                .password("{noop}p@ssword")
-//                .roles("REST_CLIENT");
-//    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
 }

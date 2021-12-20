@@ -1,6 +1,6 @@
 package kz.iitu.teacherinfo;
 
-import kz.iitu.teacherinfo.model.UserRequest;
+//import kz.iitu.teacherinfo.model.UserRequest;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
@@ -21,6 +21,7 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.client.RestTemplate;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 import java.util.HashMap;
@@ -32,7 +33,7 @@ import java.util.Map;
 @EnableHystrixDashboard
 @EnableHystrix
 @Configuration
-@EnableSwagger2WebMvc
+@EnableSwagger2
 public class TeacherinfoApplication {
 
     public static void main(String[] args) {
@@ -76,23 +77,23 @@ public class TeacherinfoApplication {
         return restTemplate;
     }
 
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 
-    @Bean
-    public KafkaTemplate<String, UserRequest> myMessageKafkaTemplate() {
-        return new KafkaTemplate<>(greetingProducerFactory());
-    }
-
-    @Bean
-    public ProducerFactory<String, UserRequest> greetingProducerFactory() {
-        Map<String, Object> configProps = new HashMap<>();
-        configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        return new DefaultKafkaProducerFactory<>(configProps);
-    }
+//    @Bean
+//    public KafkaTemplate<String, UserRequest> myMessageKafkaTemplate() {
+//        return new KafkaTemplate<>(greetingProducerFactory());
+//    }
+//
+//    @Bean
+//    public ProducerFactory<String, UserRequest> greetingProducerFactory() {
+//        Map<String, Object> configProps = new HashMap<>();
+//        configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+//        configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+//        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+//        return new DefaultKafkaProducerFactory<>(configProps);
+//    }
 
 }
