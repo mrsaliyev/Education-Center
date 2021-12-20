@@ -48,7 +48,7 @@ public class UserController {
         return ResponseEntity.ok().body(this.userService.getUserByUsername(username));
     }
 
-    @PostMapping("/role")
+    @PostMapping("/role/add")
     public ResponseEntity<Role> saveRole(@RequestBody Role role) {
         URI uri = URI.create(
                 ServletUriComponentsBuilder.fromCurrentContextPath()
@@ -65,8 +65,13 @@ public class UserController {
 
     @PostMapping("/add-role")
     public ResponseEntity<Role> addRoleToUser(@RequestBody Map<String, String> reqBody) {
-        this.userService.addRoleToUser(reqBody.get("username"), reqBody.get("password"));
+            this.userService.addRoleToUser(reqBody.get("username"), reqBody.get("name"));
         return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/delete/{userId}")
+    public void deleteUser(@PathVariable("userId") Long userId) {
+        userService.deleteUser(userId);
     }
 
 }

@@ -38,13 +38,13 @@ public class StudentRatingServiceImpl implements StudentRatingService {
             fallbackMethod = "getStudentRatingFallback",
             threadPoolKey = "getStudentRating",
             threadPoolProperties = {
-                    @HystrixProperty(name="coreSize", value="100"),
-                    @HystrixProperty(name="maxQueueSize", value="50"),
+                    @HystrixProperty(name = "coreSize", value = "100"),
+                    @HystrixProperty(name = "maxQueueSize", value = "50"),
             })
     public void getStudentRating(Long id) {
         System.out.println("StudentRatingServiceImpl.getStudentRating");
         System.out.println("id = " + id);
-        Rating  rating = new Rating();
+        Rating rating = new Rating();
         rating.setStudentId(id);
         rating.setRating(12);
         return;

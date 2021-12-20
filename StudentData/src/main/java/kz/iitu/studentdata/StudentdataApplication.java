@@ -39,15 +39,15 @@ public class StudentdataApplication {
 
         CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
 
-		credentialsProvider.setCredentials(AuthScope.ANY,
-				new UsernamePasswordCredentials("rest-client", "p@ssword"));
+        credentialsProvider.setCredentials(AuthScope.ANY,
+                new UsernamePasswordCredentials("rest-client", "p@ssword"));
 
-		HttpClient client = HttpClientBuilder
-				.create()
-				.setDefaultCredentialsProvider(credentialsProvider)
-				.build();
+        HttpClient client = HttpClientBuilder
+                .create()
+                .setDefaultCredentialsProvider(credentialsProvider)
+                .build();
 
-		requestFactory.setHttpClient(client);
+        requestFactory.setHttpClient(client);
 
         return restTemplate;
     }

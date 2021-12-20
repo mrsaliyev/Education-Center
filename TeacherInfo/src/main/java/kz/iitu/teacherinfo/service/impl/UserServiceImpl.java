@@ -25,8 +25,11 @@ import javax.transaction.Transactional;
 @Transactional
 public class UserServiceImpl implements UserService, UserDetailsService {
 
+    @Autowired
     private UserRepository userRepo;
+    @Autowired
     private RoleRepository roleRepo;
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -48,6 +51,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         User user = this.userRepo.findByUsername(username);
         Role role = this.roleRepo.findByName(roleName);
         user.getRoles().add(role);
+        userRepo.saveAndFlush(user);
     }
 
     @Override
@@ -83,5 +87,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         });
 
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
+    }
+
+    @Override
+    public void deleteUser(Long userId) {
+        userRepo.deleteById(userId);
     }
 }

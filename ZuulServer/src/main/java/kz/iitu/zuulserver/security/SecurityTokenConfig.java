@@ -12,7 +12,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
-@EnableWebSecurity 	// Enable security config. This annotation denotes config for spring security.
+@EnableWebSecurity    // Enable security config. This annotation denotes config for spring security.
 public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtConfig jwtConfig;
