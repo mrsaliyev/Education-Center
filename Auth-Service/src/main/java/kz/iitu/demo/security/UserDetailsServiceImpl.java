@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService  {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private BCryptPasswordEncoder encoder;
@@ -28,8 +28,8 @@ public class UserDetailsServiceImpl implements UserDetailsService  {
         );
 
 
-        for(AppUser appUser: users) {
-            if(appUser.getUsername().equals(username)) {
+        for (AppUser appUser : users) {
+            if (appUser.getUsername().equals(username)) {
                 List<GrantedAuthority> grantedAuthorities = AuthorityUtils
                         .commaSeparatedStringToAuthorityList("ROLE_" + appUser.getRole());
 
@@ -75,6 +75,7 @@ public class UserDetailsServiceImpl implements UserDetailsService  {
         public void setPassword(String password) {
             this.password = password;
         }
+
         public String getRole() {
             return role;
         }

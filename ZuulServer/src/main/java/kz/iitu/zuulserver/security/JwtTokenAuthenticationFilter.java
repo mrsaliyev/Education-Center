@@ -17,7 +17,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 
-public class JwtTokenAuthenticationFilter extends  OncePerRequestFilter {
+public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtConfig jwtConfig;
 
@@ -33,8 +33,8 @@ public class JwtTokenAuthenticationFilter extends  OncePerRequestFilter {
         String header = request.getHeader(jwtConfig.getHeader());
 
         // 2. validate the header and check the prefix
-        if(header == null || !header.startsWith(jwtConfig.getPrefix())) {
-            chain.doFilter(request, response);  		// If not valid, go to the next filter.
+        if (header == null || !header.startsWith(jwtConfig.getPrefix())) {
+            chain.doFilter(request, response);        // If not valid, go to the next filter.
             return;
         }
 
@@ -47,7 +47,7 @@ public class JwtTokenAuthenticationFilter extends  OncePerRequestFilter {
         // 3. Get the token
         String token = header.replace(jwtConfig.getPrefix(), "");
 
-        try {	// exceptions might be thrown in creating the claims if for example the token is expired
+        try {    // exceptions might be thrown in creating the claims if for example the token is expired
 
             // 4. Validate the token
             Claims claims = Jwts.parser()
@@ -56,7 +56,7 @@ public class JwtTokenAuthenticationFilter extends  OncePerRequestFilter {
                     .getBody();
 
             String username = claims.getSubject();
-            if(username != null) {
+            if (username != null) {
                 @SuppressWarnings("unchecked")
                 List<String> authorities = (List<String>) claims.get("authorities");
 

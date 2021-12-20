@@ -1,5 +1,7 @@
 package kz.iitu.studentdata;
 
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.ser.std.StringSerializer;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
@@ -15,7 +17,12 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 import org.springframework.context.annotation.Bean;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -39,15 +46,15 @@ public class StudentdataApplication {
 
         CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
 
-		credentialsProvider.setCredentials(AuthScope.ANY,
-				new UsernamePasswordCredentials("rest-client", "p@ssword"));
+        credentialsProvider.setCredentials(AuthScope.ANY,
+                new UsernamePasswordCredentials("rest-client", "p@ssword"));
 
-		HttpClient client = HttpClientBuilder
-				.create()
-				.setDefaultCredentialsProvider(credentialsProvider)
-				.build();
+        HttpClient client = HttpClientBuilder
+                .create()
+                .setDefaultCredentialsProvider(credentialsProvider)
+                .build();
 
-		requestFactory.setHttpClient(client);
+        requestFactory.setHttpClient(client);
 
         return restTemplate;
     }
@@ -62,5 +69,24 @@ public class StudentdataApplication {
 
         return restTemplate;
     }
+
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+/*    @Bean
+    public KafkaTemplate<String, UserRequest> myMessageKafkaTemplate() {
+        return new KafkaTemplate<>(greetingProducerFactory());
+    }
+
+    @Bean
+    public ProducerFactory<String, UserRequest> greetingProducerFactory() {
+        Map<String, Object> configProps = new HashMap<>();
+        configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        return new DefaultKafkaProducerFactory<>(configProps);
+    }*/
 
 }
