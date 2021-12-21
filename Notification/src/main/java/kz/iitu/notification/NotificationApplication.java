@@ -14,7 +14,7 @@ public class NotificationApplication {
     @Bean
     public Map<String, Object> consumerConfigs() {
         Map<String, Object> props = new HashMap<>();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:8085");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "json");
@@ -34,8 +34,8 @@ public class NotificationApplication {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, BookRequest> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, BookRequest> factory =
+    public ConcurrentKafkaListenerContainerFactory<String, UserRequest> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, UserRequest> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
 
