@@ -1,37 +1,39 @@
 package kz.iitu.coursecatalog.Controller;
 
 import kz.iitu.coursecatalog.model.Course;
-import kz.iitu.coursecatalog.model.CourseCatalog;
 import kz.iitu.coursecatalog.service.CourseInformationService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/courseCatalog")
 public class CourseCatalogController {
 
-    @Autowired
-    private CourseInformationService courseInformationService;
+    private final CourseInformationService courseInformationService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getCourseCatalog(@PathVariable("id") Long id) {
-        List<Course> course = courseInformationService.getCourse(id);
+    public CourseCatalogController(CourseInformationService courseInformationService) {
+        this.courseInformationService = courseInformationService;
+    }
 
-        List<CourseCatalog> userCourseCatalog = new ArrayList<>();
-        for (Course courses : course) {
-            CourseCatalog courseCatalog = new CourseCatalog();
-            courseCatalog.setCourseId(courses.getId());
-            courseCatalog.setPrice(courses.getPrice());
-            courseCatalog.setTitle(courses.getDescription());
-            userCourseCatalog.add(courseCatalog);
-        }
-        return ResponseEntity.ok(userCourseCatalog);
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Course>> getAllCourses(){
+        List<Course> courses = courseInformationService.listAllCourses();
+        return new ResponseEntity<>(courses, HttpStatus.OK);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Course> addCourse(@RequestBody Course course){
+        Course newCourse = courseInformationService.addCourse(course);
+        return new ResponseEntity<>(newCourse, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> removeCourse(@PathVariable("id") Long id){
+        courseInformationService.removeCourse(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

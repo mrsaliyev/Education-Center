@@ -43,7 +43,7 @@ public class CourseController {
     }
 
     @PutMapping("/update")
-    @Bulkhead(name=ORDER_SERVICE, fallbackMethod = "bulkHeadFallBack")
+//    @Bulkhead(name=ORDER_SERVICE, fallbackMethod = "bulkHeadFallBack")
     public ResponseEntity<Course> updateCourse(@RequestBody Course course) {
         Course updatedCourse = courseService.addCourse(course);
         return new ResponseEntity<>(updatedCourse, HttpStatus.OK);
