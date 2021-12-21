@@ -44,6 +44,7 @@ public class AssignCourseServiceImpl implements AssignCourseService {
             StudentRating student = restTemplate.getForObject("http://student-rating-service/student/" + id, StudentRating.class);
             String teacher = restTemplate.getForObject("http://teacher-info-service/user/" + id, String.class);
             courseAssignList.add(courseAssign);
+            courseAssignList.add(student);
         }
 
         return courseAssignList;

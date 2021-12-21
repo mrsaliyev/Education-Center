@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentRating {
+public class StudentRating extends CourseAssign {
     private Long id;
     private String courseName;
 }
