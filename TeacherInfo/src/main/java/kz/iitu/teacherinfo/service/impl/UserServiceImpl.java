@@ -1,5 +1,7 @@
 package kz.iitu.teacherinfo.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import kz.iitu.teacherinfo.Repository.RoleRepository;
 import kz.iitu.teacherinfo.Repository.UserRepository;
 import kz.iitu.teacherinfo.model.Role;
@@ -55,6 +57,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
+    @HystrixCommand(
+            fallbackMethod = "getUserInformationByIdFallback",
+            threadPoolKey = "getIUserInformationById",
+            threadPoolProperties = {
+                    @HystrixProperty(name="coreSize", value="100"),
+                    @HystrixProperty(name="maxQueueSize", value="50"),
+            })
     public User getUserById(Long userId) {
         return this.userRepo.getById(userId);
     }
